@@ -1,0 +1,16 @@
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: vending-machine
+  datasource:
+    url: jdbc:postgresql://${PSQL_HOST:localhost}:5438/vending_machine_db
+    username: ${psql_user_name}
+    password: ${psql_password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create-drop

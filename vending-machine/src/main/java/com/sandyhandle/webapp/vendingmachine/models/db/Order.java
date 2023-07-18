@@ -1,35 +1,28 @@
 package com.sandyhandle.webapp.vendingmachine.models.db;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
-@Getter
+import java.time.Instant;
+
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "Order_details")
 public class Order {
-    static int i = 0;
-    {
-        i++;
-    }
-    int orderId;
-    @Setter
-    int vmId;
-    @Setter
-    int productId;
-    @Setter
-    int cashDeposited;
-    @Setter
-    boolean orderDeliveredOrNot;
 
-    public Order(int vmId, int productId, int cashDeposited, boolean orderDeliveredOrNot) {
-        this.orderId = i;
-        this.vmId = vmId;
-        this.productId = productId;
-        this.cashDeposited = cashDeposited;
-        this.orderDeliveredOrNot = orderDeliveredOrNot;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int orderId;
 
-    public void setOrderId(int orderId) {
-        this.orderId = i;
-    }
+    private int vmId;
+
+    private int productId;
+
+    private int cashDeposited;
+
+    private boolean orderDeliveredOrNot;
+    Instant date;
 }
